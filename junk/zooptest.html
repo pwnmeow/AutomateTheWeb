@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Input Form with Output Display</title>
+<script>
+function submitForm() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var age = document.getElementById("age").value;
+    var birthday = document.getElementById("birthday").value;
+    var favoriteColor = document.getElementById("color").value;
+    var comments = document.getElementById("comments").value;
+    var newsletter = document.getElementById("newsletter").checked;
+    var gender = document.querySelector('input[name="gender"]:checked').value;
+    var occupation = document.getElementById("occupation").value;
+
+    var output = "Name: " + name + 
+                 "\nEmail: " + email + 
+                 "\nAge: " + age + 
+                 "\nBirthday: " + birthday + 
+                 "\nFavorite Color: " + favoriteColor +
+                 "\nComments: " + comments +
+                 "\nNewsletter Subscription: " + (newsletter ? "Yes" : "No") +
+                 "\nGender: " + gender +
+                 "\nOccupation: " + occupation;
+    
+    document.getElementById("output").textContent = output.replace(/\n/g, "\n");
+    return false;  // Prevent actual form submission
+}
+</script>
+</head>
+<body>
+<h2>User Information</h2>
+<form onsubmit="return submitForm();">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email"><br>
+    <label for="age">Age:</label><br>
+    <input type="number" id="age" name="age" min="0"><br>
+    <label for="birthday">Birthday:</label><br>
+    <input type="date" id="birthday" name="birthday"><br>
+    <label for="color">Favorite Color:</label><br>
+    <input type="color" id="color" name="color"><br>
+    <label for="comments">Comments:</label><br>
+    <textarea id="comments" name="comments"></textarea><br>
+    <label><input type="checkbox" id="newsletter" name="newsletter"> Subscribe to newsletter</label><br>
+    <label>Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="Male"><label for="male">Male</label><br>
+    <input type="radio" id="female" name="gender" value="Female"><label for="female">Female</label><br>
+    <label for="occupation">Occupation:</label><br>
+    <select id="occupation" name="occupation">
+        <option value="Student">Student</option>
+        <option value="Teacher">Teacher</option>
+        <option value="Engineer">Engineer</option>
+        <option value="Other">Other</option>
+    </select><br>
+    <input type="submit" value="Submit">
+</form>
+<div id="output" style="margin-top: 20px; border: 1px solid #000; padding: 10px; white-space: pre-line;">
+    <strong>Output:</strong><br>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Open Window Extension",
+  "version": "1.0",
+  "description": "Opens a new window when clicked",
+  "permissions": [
+    "tabs", "activeTab",  "scripting",  "webNavigation"
+
+
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*/*"],  // Corrected to match any URL
+      "js": ["content.js"],
+      "all_frames": true 
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "48": "./icons/icon.jpeg"
+    }
+  },
+  "icons": {
+    "48": "./icons/icon.jpeg"
+  }
+}
